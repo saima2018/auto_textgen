@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='utf-8'?>
+<configuration>
+    <property>
+        <name>task_scheduler</name>
+        <value>{
+            <!-- gpu执行子任务时子任务的大小,必须被gen_batch_size整除 -->
+            'sub_task_batch_size': 1,
+            <!-- 使用小模型进行生成时batch size，必须能整除sub_task_batch_size -->
+            'gen_batch_size': 1,
+            <!-- 影响小模型生成文章的总体创意度/随机度, 为0时文章重复度最高，达到1.5左右时文章开始不可读 -->
+            'temperature': 1.0,
+            <!-- 影响大模型生成文章的总体创意度/随机度, 为0时文章重复度最高，达到1.5左右时文章开始不可读 -->
+            'top_p': 1.0,
+            <!-- 影响生成文章的创意度/随机度, 为0时文章重复度最高，建议不超过50 -->
+            'top_k': 20,
+            <!-- 参数有效时长，单位秒 -->
+            'valid_seconds': 360000,
+            <!-- 配置能使用的所有gpu,及其ip，端口 -->
+            'gpu':{
+                'gpu1':{'host': 'http://192.168.3.3:18092'},
+                'gpu2': {'host': 'http://192.168.3.3:18093'},
+                },
+            'gpu_num':{'gpu1':0, 'gpu2':1, 'gpu3':2, 'gpu4':3},
+            }
+        </value>
+    </property>
+
+    <property>
+        <name>autogen</name>
+        <value>{'gpu1':'0', 'gpu2':'1', 'gpu3':'2', 'gpu4':'3'}
+        </value>
+    </property>
+
+    <property>
+        <name>MysqlUtils_Database</name>
+        <value>{"db":{"host":"192.168.3.3", "port":13306, "user":"root", "password":"bat100", "database":"ai-creative"}}</value>
+        <!--value>{"db":{"host":"120.27.26.186", "port":3306, "user":"dev", "password":"admin", "database":"ai-creative"},}</value-->
+        <!--value>{"db":{"host":"47.104.173.112", "port":3306, "user":"aitest", "password":">_lmKT_WRdO1+aHS", "database":"ai-creative"},
+            }</value-->
+        <!--value>{"db":{"host":"192.168.3.128", "port":13306, "user":"root", "password":"@bat100.net", "database":"ai-creative"},
+            }</value-->
+    </property>
+
+    <property>
+        <name>patch</name>
+        <value>{'list':['也是值得指出的。', '是需要注意的。','也很重要。','也是不能忽视的。','也是大家在意的。','是一个重要问题。']}</value>
+    </property>
+
+    <property>
+        <name>备用</name>
+        <value>{'a':1}</value>
+    </property>
+
+</configuration>
